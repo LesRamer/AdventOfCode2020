@@ -54,10 +54,10 @@ foreach(var line in lines)
     }
     else
     {
-        var xs = line.Split(' ').ToDictionary(x => x.Substring(0, x.IndexOf(':')), x => x.Substring(x.IndexOf(':')+1));
+        var xs = line.Split(' ').Select(x => (key: x.Substring(0, x.IndexOf(':')), value: x.Substring(x.IndexOf(':')+1)));
         foreach(var x in xs)
         {
-            passport[x.Key] = x.Value;
+            passport[x.key] = x.Value;
         }
         
     }
