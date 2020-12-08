@@ -22,3 +22,14 @@ var query2 =
 
 query2.Sum(x => x.sum).Dump("part 2"); // end 12:15
 
+
+// cleanup
+var counts =
+    File
+        .ReadLines(@"c:\windows\temp\input06.txt")
+        .Split("")
+//        .Select(g => g.Aggregate<IEnumerable<char>>((a, b) => a.Union(b)).Count()) // part 1
+        .Select(g => g.Aggregate<IEnumerable<char>>((a, b) => a.Intersect(b)).Count()) // part 2
+        .Sum();
+
+counts.Dump();
