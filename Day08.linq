@@ -14,7 +14,6 @@ var modifiedPrograms =
 
 modifiedPrograms.First(x => !x.infinite).acc.Dump("Part 2");
 
-
 IEnumerable<(int ip, int acc, string op, int val, bool infinite)> Execute(IEnumerable<(string op, int arg)> prog)
 {
     int length = prog.Count();
